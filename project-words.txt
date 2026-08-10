@@ -170,6 +170,7 @@ resumekti
 ristime
 rname
 ropeproject
+satteri
 savefig
 scaaml
 scipy
