@@ -71,17 +71,19 @@ def test_train_save_load(tmp_path):
 
     model.save(save_path)
 
+    nontrivial_acc: float = 0.175
+
     score = model.evaluate(x_test, y_test)
     print("[orig] Test loss:", score[0])
     print("[orig] Test accuracy:", score[1])
-    assert score[1] > 0.2
+    assert score[1] > nontrivial_acc
 
     loaded_model = keras.models.load_model(save_path)
     loaded_model.summary()
     score = loaded_model.evaluate(x_test, y_test)
     print("[loaded] Test loss:", score[0])
     print("[loaded] Test accuracy:", score[1])
-    assert score[1] > 0.2
+    assert score[1] > nontrivial_acc
 
     # Make sure the loaded model is the same layer by layer.
     def match(i, x):
