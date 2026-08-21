@@ -76,6 +76,7 @@ def test_train_save_load(tmp_path):
     score = model.evaluate(x_test, y_test)
     print("[orig] Test loss:", score[0])
     print("[orig] Test accuracy:", score[1])
+
     assert score[1] > min_accuracy
 
     loaded_model = keras.models.load_model(save_path)
